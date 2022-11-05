@@ -22,10 +22,31 @@ new Swiper('.mySwiper2', {
   autoplay: {
     delay: 2000,
     stopOnLastSlide: false,
-    disableOnInteraction: true,
+    disableOnInteraction: false,
+    reverseDirection: true
   },
   thumbs: {
     swiper
+  },
+})
+
+new Swiper('.cube', {
+  effect: 'cube',
+  autoplay: {
+    delay: 1500,
+    stopOnLastSlide: false,
+    disableOnInteraction: false,
+    reverseDirection: true
+  },
+  grabCursor: true,
+  cubeEffect: {
+    shadow: true,
+    slideShadows: true,
+    shadowOffset: 20,
+    shadowScale: 0.94,
+  },
+  pagination: {
+    el: '.swiper-pagination',
   },
 })
 
