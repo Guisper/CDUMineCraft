@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@CDURed: #90000a;
+
+.flex-center() {
+  display: flex;
+  justify-content: center;
+}
+
+.top {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url(../img/ideal/background.jpeg) center center no-repeat;
+    filter: blur(5px);
+    z-index: -1;
+    background-size: cover;
+  }
+
+  .title {
+    .flex-center();
+    margin: 200px;
+    text-align: center;
+    position: relative;
+
+    h1 {
+      color: red;
+      font-size: 70px;
+      text-shadow: 2px 5px @CDURed;
+      font-style: italic;
+    }
+
+    @keyframes myscale {
+      from {
+        scale: 1;
+      }
+
+      50% {
+        scale: 1.08;
+      }
+
+      to {
+        scale: 1;
+      }
+    }
+
+    p {
+      position: absolute;
+      right: 10px;
+      font-size: 30px;
+      top: 35px;
+      transform: rotateZ(-12deg);
+      color: yellow;
+      text-shadow: 2px 3px black;
+      z-index: 2;
+      animation: myscale 1s infinite;
+      -webkit-animation: myscale 1s infinite;
+    }
+  }
+
+  .btn {
+    .flex-center();
+
+    button {
+      margin-top: 100px;
+      width: 489px;
+      height: 87px;
+      background-image: url("https://test.nie.163.com/test_cdn/mc/pc/gw/20190918094936/img/title-1_5469679.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
+      color: #1f2509;
+      font-size: 30px;
+      line-height: 87px;
+      font-weight: bold;
+      text-align: center;
+      text-indent: 0;
+      overflow: hidden;
+      outline: none;
+      border: none;
+      transition: .15s;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:active {
+        background-size: 98% 98%;
+        scale: .98;
+      }
+    }
+  }
+}
