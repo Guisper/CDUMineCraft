@@ -4,7 +4,7 @@ function clickToTarget(anchor, tar) {
   anchorLink && anchorLink.addEventListener('click', function (e) {
     if (window.scrollTo) {
       e.preventDefault()
-      window.scrollTo({ 'behavior': 'smooth', 'top': target.offsetTop })
+      window.scrollTo({ behavior: 'smooth', top: target.offsetTop })
     }
   })
 }

@@ -21,12 +21,11 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        loader: 'url-loader',
+        loader: 'file-loader',
         options: {
-          limit: 1000 * 1024,
           esModule: false,
-          name: '[hash:10].[ext]',
-          outputPath: 'img',
+          outputPath: '/img/',
+          publicPath: '/img/'
         }
       },
       {
