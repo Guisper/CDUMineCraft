@@ -24,8 +24,8 @@ module.exports = {
         loader: 'file-loader',
         options: {
           esModule: false,
-          outputPath: '/img/',
-          publicPath: '/img/'
+          outputPath: 'img/',
+          publicPath: 'img/'
         }
       },
       {
