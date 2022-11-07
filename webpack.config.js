@@ -2,6 +2,7 @@ const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyjsWebpackPugin = require('uglifyjs-webpack-plugin')
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
   entry: './src/js/app.js',
@@ -24,8 +25,8 @@ module.exports = {
         loader: 'file-loader',
         options: {
           esModule: false,
-          outputPath: 'img/',
-          publicPath: 'img/'
+          outputPath: '/img/',
+          publicPath: '/img/'
         }
       },
       {
@@ -48,10 +49,25 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       // 传入可选参数，可对文件路径进行修改和重命名
-      filename: 'src/css/built.css'
+      filename: "css/[name].css",
+      chunkFilename: "css/[id].chunk.css"
     }),
     new UglifyjsWebpackPugin(),
+    new OptimizeCssAssetsWebpackPlugin()
   ],
+  optimization: {
+    minimizer: [new OptimizeCssAssetsWebpackPlugin({})],
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true // 强制忽略minChunks等设置
+        }
+      }
+    }
+  },
   mode: 'development',
   devtool: 'source-map',
 }
