@@ -2,11 +2,11 @@
 /*!**************************!*\
   !*** ./src/js/anchor.ts ***!
   \**************************/
-/*! no static exports found */function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(e,t){var e=document.querySelector(e),s=document.querySelector(t);e&&e.addEventListener("click",function(e){null!==window&&void 0!==window&&window.scrollTo&&(e.preventDefault(),window.scrollTo({behavior:"smooth",top:s.offsetTop}))})}},"./src/js/app.ts":
+/*! no static exports found */function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.clickToSlide=t.clickToTarget=void 0,t.clickToTarget=function(e,t){var e=document.querySelector(e),s=document.querySelector(t);e&&e.addEventListener("click",function(e){null!==window&&void 0!==window&&window.scrollTo&&(e.preventDefault(),window.scrollTo({behavior:"smooth",top:s.offsetTop}))})},t.clickToSlide=function(e,t){(e=document.querySelector(e))&&e.addEventListener("click",function(){null!=t&&t.slideNext()})}},"./src/js/app.ts":
 /*!***********************!*\
   !*** ./src/js/app.ts ***!
   \***********************/
-/*! no static exports found */function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),s(/*! ../style/swiper-bundle.min.css */"./src/style/swiper-bundle.min.css"),s(/*! ../style/animate.min.css */"./src/style/animate.min.css");t=s(/*! ./anchor */"./src/js/anchor.ts");s(/*! ./swiper */"./src/js/swiper.ts"),s(/*! ../style/style.less */"./src/style/style.less"),t.default(".btn button",".box")},"./src/js/swiper-bundle.min.js":
+/*! no static exports found */function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),s(/*! ../style/swiper-bundle.min.css */"./src/style/swiper-bundle.min.css"),s(/*! ../style/animate.min.css */"./src/style/animate.min.css"),s(/*! ./swiper */"./src/js/swiper.ts"),s(/*! ../style/style.less */"./src/style/style.less")},"./src/js/swiper-bundle.min.js":
 /*!*************************************!*\
   !*** ./src/js/swiper-bundle.min.js ***!
   \*************************************/
@@ -14,7 +14,7 @@
 /*!**************************!*\
   !*** ./src/js/swiper.ts ***!
   \**************************/
-/*! no static exports found */function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0});t=s(/*! ./swiper-bundle.min */"./src/js/swiper-bundle.min.js"),s=new t(".mySwiper",{loop:!0,spaceBetween:10,slidesPerView:4,freeMode:!0,watchSlidesProgress:!0});new t(".mySwiper2",{loop:!0,spaceBetween:10,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},autoplay:{delay:2e3,stopOnLastSlide:!1,disableOnInteraction:!1},thumbs:{swiper:s}}),new t(".cube",{effect:"cube",autoplay:{delay:1500,stopOnLastSlide:!1,disableOnInteraction:!1},grabCursor:!0,cubeEffect:{shadow:!0,slideShadows:!0,shadowOffset:20,shadowScale:.94},pagination:{el:".swiper-pagination"}})},"./src/style/style.less":
+/*! no static exports found */function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var t=s(/*! ./swiper-bundle.min */"./src/js/swiper-bundle.min.js"),s=s(/*! ./anchor */"./src/js/anchor.ts"),a=new t("#page",{direction:"vertical",spaceBetween:30,mousewheel:!0,pagination:{el:".swiper-pagination",clickable:!0}}),s=(s.clickToSlide(".btn button",a),new t(".mySwiper",{loop:!0,spaceBetween:10,slidesPerView:4,freeMode:!0,watchSlidesProgress:!0}));new t(".ideal",{loop:!0,spaceBetween:10,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},autoplay:{delay:2e3,stopOnLastSlide:!1,disableOnInteraction:!1},thumbs:{swiper:s}}),new t(".cube",{effect:"cube",autoplay:{delay:1500,stopOnLastSlide:!1,disableOnInteraction:!1},grabCursor:!0,cubeEffect:{shadow:!0,slideShadows:!0,shadowOffset:20,shadowScale:.94},pagination:{el:".swiper-pagination"}})},"./src/style/style.less":
 /*!******************************!*\
   !*** ./src/style/style.less ***!
   \******************************/
