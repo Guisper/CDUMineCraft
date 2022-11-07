@@ -26,7 +26,7 @@ module.exports = {
         options: {
           esModule: false,
           outputPath: '/img/',
-          publicPath: '/build/img/'
+          publicPath: './img/'
         }
       },
       {
@@ -45,7 +45,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      // favicon: resolve('src/favicon.ico'),
+      favicon: resolve('src/favicon.ico'),
       minify: {
         minimize: true,
         removeConments: true,
