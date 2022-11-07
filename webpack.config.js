@@ -5,7 +5,7 @@ const UglifyjsWebpackPugin = require('uglifyjs-webpack-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
-  entry: './src/js/app.js',
+  entry: './src/js/app.ts',
   output: {
     filename: 'js/built.js',
     path: resolve(__dirname, 'build'),
@@ -26,14 +26,21 @@ module.exports = {
         options: {
           esModule: false,
           outputPath: '/img/',
-          publicPath: '/img/'
+          publicPath: '/build/img/'
         }
       },
       {
         test: /\.html$/,
         loader: 'html-loader'
+      },
+      {
+        test: /\.ts$/,
+        use: 'ts-loader'
       }
     ]
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -49,8 +56,8 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       // 传入可选参数，可对文件路径进行修改和重命名
-      filename: "css/[name].css",
-      chunkFilename: "css/[id].chunk.css"
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[id].chunk.css'
     }),
     new UglifyjsWebpackPugin(),
     new OptimizeCssAssetsWebpackPlugin()
