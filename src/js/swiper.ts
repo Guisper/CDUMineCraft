@@ -1,5 +1,6 @@
 import * as Swiper from './swiper-bundle.min'
 import { clickToSlide } from './anchor'
+
 // 页面整体竖向滚动
 const pageSilde = new Swiper('#page', {
   direction: 'vertical',
@@ -14,6 +15,34 @@ const pageSilde = new Swiper('#page', {
 
 clickToSlide('.btn button', pageSilde)
 
+// 菜单
+const menuButton = document.querySelector('.menu-button')
+const openMenu = () => (menuSwiper as any).slidePrev()
+const menuSwiper = new Swiper('#menu', {
+  slidesPerView: 'auto',
+  initialSlide: 1,
+  resistanceRatio: 0,
+  slideToClickedSlide: true,
+  on: {
+    slideChangeTransitionStart() {
+      const slider = this
+      if (slider.activeIndex === 0) {
+        menuButton.classList.add('cross')
+        // required because of slideToClickedSlide
+        menuButton.removeEventListener('click', openMenu, true)
+      } else {
+        menuButton.classList.remove('cross')
+      }
+    },
+    slideChangeTransitionEnd() {
+      const slider = this
+      if (slider.activeIndex === 1) {
+        menuButton.addEventListener('click', openMenu, true)
+      }
+    }
+  }
+})
+
 // 第二页
 const swiper = new Swiper('.mySwiper', {
   loop: true,
@@ -23,7 +52,7 @@ const swiper = new Swiper('.mySwiper', {
   watchSlidesProgress: true
 })
 
-new Swiper('.ideal', {
+new Swiper('.show', {
   loop: true,
   spaceBetween: 10,
   navigation: {

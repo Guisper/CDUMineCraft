@@ -9,7 +9,9 @@ img {
 }
 
 @CDURed: #90000a;
+@PrimaryColor: #0d6efd;
 @BGImg: url(http://guisper.gitee.io/image/image/github/CDUMineCraft/background.jpeg);
+@BtnBG: url(http://guisper.gitee.io/image/image/github/CDUMineCraft/btnbg.png);
 
 .flex-centerX() {
   display: flex;
@@ -31,6 +33,27 @@ img {
 #page {
   width: 100%;
   height: 100vh;
+}
+
+// .menu {
+//   position: sticky;
+//   top: 0;
+//   width: 100vw;
+//   background-color: lightskyblue;
+
+//   h2 {
+//     font-size: 18px;
+//     margin: 0;
+//     padding: 10px;
+//   }
+// }
+
+.swiper-slide h2 {
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+  font-size: 28px;
+  color: @CDURed;
 }
 
 .top {
@@ -95,32 +118,213 @@ img {
 
   .btn {
     .abs-centerX();
-    bottom: 100px;
+    bottom: 140px;
 
-    button {
-      margin-top: 100px;
-      width: 489px;
-      height: 87px;
-      background-image: url("https://test.nie.163.com/test_cdn/mc/pc/gw/20190918094936/img/title-1_5469679.png");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 100% 100%;
-      color: #1f2509;
-      font-size: 30px;
-      line-height: 87px;
-      font-weight: bold;
-      text-align: center;
-      text-indent: 0;
-      overflow: hidden;
-      outline: none;
-      border: none;
-      transition: .15s;
-      background-color: transparent;
+    div {
+      .flex-centerX();
+
+      button {
+        width: 400px;
+        height: 60px;
+        margin: 15px;
+        border-radius: 3px;
+        background-image: @BtnBG;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% 100%;
+        color: #ededed;
+        letter-spacing: 8px;
+        font-size: 24px;
+        line-height: 60px;
+        text-align: center;
+        text-indent: 0;
+        overflow: hidden;
+        outline: none;
+        border: none;
+        transition: .15s;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:active {
+          background-size: 98% 98%;
+          scale: .98;
+        }
+      }
+    }
+  }
+}
+
+.about {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #eee;
+
+  .box {
+    display: flex;
+    padding: 0 30px;
+    justify-content: space-around;
+  }
+
+  h3 {
+    text-align: center;
+    font-size: x-large;
+  }
+
+  .left {
+    width: 35%;
+
+    &>img {
+      width: 100%;
+      border-radius: 6px;
+      scale: 1;
+      transition: .3s;
       cursor: pointer;
 
-      &:active {
-        background-size: 98% 98%;
-        scale: .98;
+      &:hover {
+        scale: 1.02;
+      }
+    }
+
+    p {
+      font-size: large;
+      text-align: center;
+
+      .join {
+        width: 100%;
+        color: @PrimaryColor;
+        border-bottom: 1px solid @PrimaryColor;
+        cursor: pointer;
+        position: relative;
+
+        img {
+          width: 180px;
+          position: absolute;
+          right: 0;
+          transform: translateX(120px);
+          bottom: -65px;
+          border-radius: 10px;
+          border: 1px solid #aaa;
+          box-shadow: 2px 3px 5px #ccc;
+          opacity: 0;
+          transition: .5s;
+        }
+
+        &:hover img {
+          opacity: 1;
+          transform: translateX(240px);
+        }
+      }
+    }
+  }
+
+  .right {
+    width: 65%;
+
+    .card-box {
+      display: flex;
+      justify-content: center;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 80%;
+        background-color: lightskyblue;
+      }
+
+      .card {
+        margin: 0 10px;
+        width: 360px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, .125);
+        border-radius: .25rem;
+
+        &.c1,
+        &.c2 {
+          text-align: right;
+        }
+
+        &.c2 {
+          transform: translateY(60px);
+        }
+
+        &.c3 {
+          transform: translateY(140px);
+        }
+
+        &.c4 {
+          transform: translateY(200px);
+        }
+      }
+
+      h5 {
+        margin: 0;
+        font-size: 1.25rem;
+        margin-bottom: .5rem;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      .card-header {
+        padding: .5rem 1rem;
+
+        background-color: rgba(0, 0, 0, .03);
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
+      }
+
+      .card-body {
+        padding: 1.5rem;
+        margin-right: 0;
+        margin-left: 0;
+        border-width: 1px;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+
+        p {
+          margin: 0;
+          margin-bottom: 8px;
+          color: @PrimaryColor;
+        }
+      }
+
+      a {
+        color: @PrimaryColor;
+        text-decoration: underline;
+      }
+
+      .btn {
+        display: inline-block;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        background-color: transparent;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        border-radius: .25rem;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      }
+
+      .btn-primary {
+        color: #fff;
+        background-color: @PrimaryColor;
+        border-color: @PrimaryColor;
       }
     }
   }
@@ -129,8 +333,6 @@ img {
 .box {
   width: 100%;
   height: 100vh;
-  box-sizing: border-box;
-  padding: 10px;
   background-color: #eee;
 
   .swiper {
@@ -157,8 +359,8 @@ img {
 
   }
 
-  .ideal {
-    height: 80%;
+  .show {
+    height: 72%;
     width: 80%;
   }
 
@@ -183,18 +385,11 @@ img {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding: 10px;
   background-color: #eee;
 
-  h2 {
-    text-align: center;
-    font-size: 32px;
-    color: @CDURed;
-  }
-
-  .swiper {
-    width: 80%;
-    height: 80vh;
+  .cube {
+    width: 72%;
+    transform: translateY(60px);
 
     .swiper-slide {
       background-position: center;
