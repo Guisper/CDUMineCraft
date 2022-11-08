@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 img {
@@ -10,8 +11,10 @@ img {
 
 @CDURed: #90000a;
 @PrimaryColor: #0d6efd;
-@BGImg: url(http://guisper.gitee.io/image/image/github/CDUMineCraft/background.jpeg);
-@BtnBG: url(http://guisper.gitee.io/image/image/github/CDUMineCraft/btnbg.png);
+@PrimaryDeep: #6610f2;
+@PrimaryLight: #3d8bfd;
+@BGImg: url(http://guisper.gitee.io/image/image/github/CDUMineCraft/game/background.jpeg);
+@BtnBG: url(http://guisper.gitee.io/image/image/github/CDUMineCraft/assets/ButtonBG.png);
 
 .flex-centerX() {
   display: flex;
@@ -85,7 +88,7 @@ img {
       }
 
       50% {
-        scale: 1.08;
+        scale: 1.1;
       }
 
       to {
@@ -104,8 +107,8 @@ img {
         position: absolute;
         right: -100px;
         font-style: normal;
-        font-size: 30px;
-        top: 10px;
+        font-size: 26px;
+        top: 12px;
         transform: rotateZ(-12deg);
         color: yellow;
         text-shadow: 2px 3px black;
@@ -187,8 +190,14 @@ img {
     }
 
     p {
-      font-size: large;
+      margin: 12px;
+      font-size: medium;
       text-align: center;
+
+      &.info {
+        font-size: small;
+        font-weight: bold;
+      }
 
       .join {
         width: 100%;
@@ -201,18 +210,19 @@ img {
           width: 180px;
           position: absolute;
           right: 0;
-          transform: translateX(120px);
+          transform: translateX(150px);
           bottom: -65px;
           border-radius: 10px;
           border: 1px solid #aaa;
-          box-shadow: 2px 3px 5px #ccc;
+          box-shadow: 3px 4px 6px #cecece;
           opacity: 0;
           transition: .5s;
+          z-index: 3;
         }
 
         &:hover img {
           opacity: 1;
-          transform: translateX(240px);
+          transform: translateX(200px);
         }
       }
     }
@@ -245,6 +255,31 @@ img {
         background-clip: border-box;
         border: 1px solid rgba(0, 0, 0, .125);
         border-radius: .25rem;
+        box-shadow: 2px 2px 5px #ccc;
+        cursor: pointer;
+
+        .card-header {
+          margin: 0;
+          padding: .5rem 1rem;
+          background-color: rgba(0, 0, 0, .03);
+          border-bottom: 1px solid rgba(0, 0, 0, .125);
+          border-top-left-radius: .25rem;
+          border-top-right-radius: .25rem;
+          transition: .3s;
+        }
+
+        &:hover .card-header {
+          background-color: @PrimaryLight;
+          color: white;
+        }
+
+        &:hover .card-title {
+          letter-spacing: 2px;
+        }
+
+        &:hover .card-text {
+          color: @PrimaryDeep;
+        }
 
         &.c1,
         &.c2 {
@@ -270,17 +305,15 @@ img {
         margin-bottom: .5rem;
         font-weight: 500;
         line-height: 1.2;
-      }
 
-      .card-header {
-        padding: .5rem 1rem;
-
-        background-color: rgba(0, 0, 0, .03);
-        border-bottom: 1px solid rgba(0, 0, 0, .125);
+        &.card-title {
+          margin: 0;
+          margin-bottom: 8px;
+          transition: .3s;
+        }
       }
 
       .card-body {
-        padding: 1.5rem;
         margin-right: 0;
         margin-left: 0;
         border-width: 1px;
@@ -289,10 +322,14 @@ img {
         flex: 1 1 auto;
         padding: 1rem 1rem;
 
-        p {
+        .card-text {
+          text-indent: 2em;
+          font-size: small;
           margin: 0;
           margin-bottom: 8px;
           color: @PrimaryColor;
+          text-align: left;
+          transition: .3s;
         }
       }
 
@@ -389,7 +426,7 @@ img {
 
   .cube {
     width: 72%;
-    transform: translateY(60px);
+    transform: translateY(30px);
 
     .swiper-slide {
       background-position: center;
